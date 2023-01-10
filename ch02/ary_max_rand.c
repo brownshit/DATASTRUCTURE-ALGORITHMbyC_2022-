@@ -18,7 +18,7 @@ int main()
 	printf("사람 수 : ");
 	scanf_s("%d", &num);
 	int* height = calloc(num, sizeof(int));
-	srand(time(NULL));			//시간으로 난수의 seed를 초기화.
+	srand(time(NULL));			//시간으로 난수의 seed를 초기화. 이 부분이 매 실행마다의 rand함수 값이 달라지게 한다.
 	for (int i = 0; i < num; i++) {
 		height[i] = 140 + rand() % 50;		//100 ~ 189
 		printf("height[%d] = %d\n", i + 1, height[i]);
