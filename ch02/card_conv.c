@@ -23,8 +23,8 @@ int card_conv(unsigned x, int n, char d[]) {//char *d와 같다.		condition : x 
 			x /= n;
 		}
 	}
-	for (int i = 0; i < (digits / 2); i++) {
-		swap(char, d[i], d[n - 1 - i]);
+	for (int i = 0; i < (digits / 2); i++) {		//여기 n이 아니라 digits 인것에 주의하자.
+		swap(char, d[i], d[digits - 1 - i]);
 		//역순 정리를 해서 MSB와 LSB를 바꿔준다.
 	}
 
@@ -46,12 +46,14 @@ int main()
 
 		int dno = card_conv(no, cd, cno);		//dho는 cno의 자리수이다... 배열의 자릿수는 c에서 중요하다! ... 인덱싱
 
-		printf("convert to %d 진수 : ", dno);
+		printf("convert to %d 진수 : ", cd);
 		for (int i =0; i<dno;i ++){
 			printf("%c", cno[i]);
 		}
+		puts("");
 
 		printf("재실행 할까요?...to be continue, input '1'... : "); scanf_s("%d", &retry);
+		*cno = NULL;
 	} while (retry == 1);
 	
 	return 0;
