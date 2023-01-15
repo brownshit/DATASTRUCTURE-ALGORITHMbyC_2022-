@@ -57,6 +57,7 @@ int int_cmp(const int* a, const int* b) {
 		return 1;
 	else
 		return 0;		//compare by memory...
+	//return *a < *b ? -1: *a > b ? 1 : 0;		로도 대체가 가능하다.
 }
 
 
