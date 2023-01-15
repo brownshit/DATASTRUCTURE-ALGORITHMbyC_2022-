@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<stdlib.h>		//for malloc and free
+//#include<time.h>
+
+#define CRT_SECURE_NO_WARNINGS
+//#pragma warning(disable:4996)
+/*===x,y교환하는 매크로함수===*/
+//#define swap(type,x,y) do{type t = x; x = y; y = t; }while(0)//{type t = x; x = y; y = t;}		
+
+int int_cmpr(const int* a, const int* b);
+
+//bsearch is in stdlib.h header file.
+
+int main()
+{	
+	/*검색 알고리즘*/
+	int nx, ky;
+	puts("Use bsearch to searching...\n");
+	printf("comp num input : "); scanf_s("%d", &nx);
+	int* x = calloc(nx, sizeof(int));
+
+	printf("x[0]: "); scanf_s("%d", &x[0]);
+
+	//data input.
+	for (int i = 1; i < nx; i++) {
+		do {
+			printf("x[%d]: ", i); scanf_s("%d", &x[i]);
+		} while (x[i] > x[i-1]);
+	}
+	printf("key value input : "); scanf_s("%d", &ky);
+	
+	
+	/*--using bsearch function--*/
+		//pointer type data output...
+	int* p = bsearch(
+		&ky,		//검색값에 대한 포인터
+		x,			//array
+		nx,			//array len
+		sizeof(int),//array element size
+		(int(*)(const void *, const void *))int_cmpr		//비교함수... 일단 함수와의 관계를 잘 살펴보자.
+		);
+	//bsearch 의 반환형은 찾으려는 요소의 포인터 변수인 것에 유의 할것!
+	
+
+	if (p == NULL)
+		puts("Searching Failed...");
+	else
+		printf("%d is in x[%d]", ky,(int)(p-x));	//p-x 는 해당위치의 주소값에서 x의 주소값을 빼고 난 후의 주소값을 int로 casting한것이다.
+
+	free(x);
+	return 0;
+}
+
+
+//내림차순비교를 진행하는 함수이다.
+int int_cmpr(const int* a, const int* b) {
+	if (*a < *b)
+		return 1;
+	else if (*a > *b)
+		return -1;
+	else
+		return 0;		//compare by memory...
+	//return *a < *b ? 1 : *a > b ? -1 : 0;		로도 대체가 가능하다.
+}
+
+
+/*
+	for(;1;){
+		//이것도 무한루프이다. while(1){ ... }같은.
+	}
+*/
