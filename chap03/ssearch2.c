@@ -52,7 +52,7 @@ int main()
 	int idx = search(x, nx, ky);
 	printf("index of [%d] : %d", ky, idx);
 
-
+	free(x);
 
 	return 0;
 }
