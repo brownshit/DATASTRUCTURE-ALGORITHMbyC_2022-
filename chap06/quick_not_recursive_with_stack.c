@@ -66,7 +66,7 @@ void quick(int a[], int left, int right) {
         }
     }
     Terminate(&lstack);
-    Terminate(&rstack);     //kill stack when end the function...
+    Terminate(&rstack);     //kill stack when function ends...
 }
 
 
