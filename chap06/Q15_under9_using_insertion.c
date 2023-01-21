@@ -83,7 +83,7 @@ void quick(int a[], int left, int right) {      //p.249 조금더 최적화된 �
 int main() {
     int nx;
     puts("quick_sorting...");
-IDX:
+    
     printf("element num input : "); scanf_s("%d", &nx);
 
     int* array = calloc(nx, sizeof(int));      //size, data_type
@@ -95,8 +95,6 @@ IDX:
     //partition(array, nx);
     quick(array, 0, nx - 1);
     
-
-
     //print array...
     for (int i = 0; i < nx; i++)
         printf("x[%d] = %d\n", i, array[i]);
