@@ -47,7 +47,7 @@ void quick(int a[], int left, int right) {
         //pivot
         int pivot = a[(left + right) / 2];
 
-        do {
+        do {        //main algo of qsort...!
             while (a[pl] < pivot) pl++;
             while (a[pr] > pivot)pr--;
             if (pl <= pr) {
