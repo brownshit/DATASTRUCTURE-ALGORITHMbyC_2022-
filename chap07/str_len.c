@@ -20,12 +20,20 @@ int str_len_2(const char* s) {
 	return len;		//그래서 길이가 반환된다,
 }
 
+int str_len_3(const char* s) {
+	const char* p = s;
+	while (*s)	//인덱스로서 len사용하지 않고 s의 인덱스를 하나씩 증가시켜간다.
+		s++;
+	return s-p;		//그래서 길이가 반환된다,
+}
+
 int main() {
 	char str[256];
 	printf("문자열 : "); scanf_s("%s", str, sizeof(str));		//sizeof(포인터 변수) 가 인수로 추가로 더 들어가야 하는게 옳은 형식,,,
 	printf("%s\n", str);
 	printf("문자열 길이(1) : %d\n", str_len(str));
-  printf("문자열 길이(2) : %d\n", str_len_2(str));
+	printf("문자열 길이(2) : %d\n", str_len_2(str));
+	printf("문자열 길이(3) : %d\n", str_len_3(str));
 
 
 
