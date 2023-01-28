@@ -4,11 +4,11 @@
 
 /*회원번호 비교함수*/
 int MemberNoCmp(const Member* x, const Member* y) {
-	return x->no < y->no ? -1 :(x->no > y->no ? 1 : 0);
+	return x->no < y->no ? -1 : (x->no > y->no ? 1 : 0);
 }
 
 /*회원이름 비교함수*/
-int MemberNameCmp(const Member* x, const Member* y){
+int MemberNameCmp(const Member* x, const Member* y) {
 	return strcmp(x->name, y->name);
 }
 
@@ -29,4 +29,5 @@ Member ScanMember(const char* message, int sw) {
 	if (sw & MEMBER_NO) { printf("번호 : "); scanf_s("%d", &temp.no); }
 	if (sw & MEMBER_NAME) { printf("이름 : "); scanf_s("%s", temp.name, sizeof(temp.name)); }
 	//no is integer but, name is pointer char(string)
+	return temp;
 }
