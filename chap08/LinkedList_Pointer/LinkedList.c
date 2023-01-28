@@ -13,6 +13,7 @@
 static Node* AllocNode(void) {
 	return calloc(1, sizeof(Node));
 }
+
 /*n이 가리키는 노드의 각 멤버에 값을 설정*/
 static void SetNode(Node* n, const Member* x, const Node* next) {
 	n->data = *x;		//데이터
@@ -31,7 +32,7 @@ void Initialize(List* list) {	//make empty linked list
 	2개 요소...
 	list->head->next->next = NULL
 		얘의 데이터...
-		list->head->next->data	
+		list->head->next->data
 	.
 	.
 	.
@@ -75,7 +76,7 @@ void InsertRear(List* list, const Member* x) {
 		while (ptr->next != NULL)
 			ptr = ptr->next;//이게 ptr->next가 없을때까지 계속 반복,,,
 
-		ptr->next = list->crnt = AllocNode();	
+		ptr->next = list->crnt = AllocNode();
 
 		SetNode(ptr->next, x, NULL);
 		//다음노드에 NULL을 넣어 꼬리노드가 어떤노드도 가리키지 않게 한다.
@@ -100,7 +101,7 @@ void RemoveRear(List* list) {
 			Node* ptr = list->head;
 			Node* pre = 0;
 			//원래 nullptr사용해야하는게 맞긴 한데 그거 c11부터 사용이 가능
-			
+
 			//while 문 종료되면 ptr은 꼬리, pre는 꼬리에서 두번째 요소 카리킨다.
 			while (ptr->next != NULL) {
 				pre = ptr;
