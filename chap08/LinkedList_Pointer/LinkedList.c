@@ -64,7 +64,7 @@ void InsertFront(List* list, const Member* x) {
 	//ptr intialization
 	Node* ptr = list->head;		//using same memory
 	list->head = list->crnt = AllocNode();		//책 그림 보기...p.333
-	setNode(list->head, x, ptr);	//node,member,node
+	SetNode(list->head, x, ptr);	//node,member,node
 }
 
 void InsertRear(List* list, const Member* x) {
